@@ -15,6 +15,18 @@
     @apply bg-(--sorrento-gris) text-(--sorrento-azul-oscuro);
 }
 
+/*Estilo general botón apartamentos*/
+.btn-apartamento{
+    @apply w-full bg-(--sorrento-blanco) py-4 rounded-full border-2 border-(--sorrento-azul) text-(--sorrento-azul) text-lg cursor-pointer font-(--font-medium);
+}
+.btn-apartamento:hover{
+    @apply bg-(--sorrento-azul) text-(--sorrento-blanco)
+}
+
+.btn-active{
+    @apply bg-(--sorrento-azul) text-(--sorrento-blanco) cursor-default w-[292px] rounded-r-none;
+}
+
 @theme{
     /*Pesos de las fuentes*/
     --font-black: 900;
