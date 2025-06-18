@@ -1,0 +1,51 @@
+---
+const EnlaceForm = "https://formsubmit.co/sdespitia@cvu.com.co";
+---
+
+<section class="formulario">
+  <form action={EnlaceForm} method="POST">
+    <!-- Asunto (invisible pero necesario para personalizar el correo recibido) -->
+    <input type="hidden" name="_subject" value="Formulario de prueba para colaborador" />
+    <input type="hidden" name="_captcha" value="false" />
+
+    <!-- Campos visibles -->
+    <label>
+      Nombre completo:
+      <input type="text" name="nombre" required />
+    </label>
+
+    <label>
+      Ciudad:
+      <input type="text" name="ciudad" required />
+    </label>
+
+    <label>
+      Correo electrónico:
+      <input type="email" name="correo" required />
+    </label>
+
+    <label>
+      Celular:
+      <input type="tel" name="celular" required />
+    </label>
+
+    <label>
+      Área:
+      <input type="text" name="area" required />
+    </label>
+
+    <label>
+      Cargo:
+      <input type="text" name="cargo" required />
+    </label>
+
+    <!-- Política de tratamiento de datos -->
+    <label>
+      <input type="checkbox" name="politica" required />
+      Acepto la <a href="/politica-de-datos" target="_blank">política de tratamiento de datos</a>.
+    </label>
+
+    <!-- Botón de envío -->
+    <button type="submit">Enviar</button>
+  </form>
+</section>

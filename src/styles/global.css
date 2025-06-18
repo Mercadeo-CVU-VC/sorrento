@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@theme{
+    /*Pesos de las fuentes*/
+    --font-black: 900;
+
+    /*Colores*/
+    --sorrento-azul-oscuro: #21225A;
+    --sorrento-azul:#34A6BA;
+    --sorrento-naranja: #F78D00;
+    --sorrento-amarillo: #FCBE09;
+    --sorrento-rojo: #D03314;
+    --sorrento-blanco: #F2F2F2;
+    --sorrento-negro: #333333;
+    --sorrento-gris: #E3E3E3;  
+}
+
+:root{
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
