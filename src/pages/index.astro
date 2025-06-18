@@ -4,12 +4,14 @@ import Banner from '../components/Banner.astro';
 import Form from '../components/Form.astro';
 import Header from '../components/Header.astro';
 import "../styles/global.css";
+import Descripcion from '../components/Descripcion.astro';
 
 ---
 
 <Layout>
 	<Banner />
-	<main class="flex flex-col w-full items-center bg-(--sorrento-azul-oscuro-2)">
+	<main class="flex flex-col gap-8 w-full items-center bg-(--sorrento-azul-oscuro-2)">
 		<Header />
+		<Descripcion />
 	</main>
 </Layout>
