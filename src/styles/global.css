@@ -1,11 +1,28 @@
 @import "tailwindcss";
 
+/*Estilo general botón header*/
+.btn-header{
+    @apply py-2 px-4 font-(--font-medium) text-(--sorrento-blanco) text-lg;
+}
+.btn-header:hover{
+    @apply underline;
+}
+
+.btn-header-2{
+    @apply py-2 px-4 text-lg bg-(--sorrento-blanco) text-(--sorrento-azul) rounded-full;
+}
+.btn-header-2:hover{
+    @apply bg-(--sorrento-gris) text-(--sorrento-azul-oscuro);
+}
+
 @theme{
     /*Pesos de las fuentes*/
     --font-black: 900;
+    --font-medium: 500;
 
     /*Colores*/
     --sorrento-azul-oscuro: #21225A;
+    --sorrento-azul-oscuro-2: #080919;
     --sorrento-azul:#34A6BA;
     --sorrento-naranja: #F78D00;
     --sorrento-amarillo: #FCBE09;
