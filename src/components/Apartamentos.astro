@@ -1,5 +1,5 @@
 ---
-
+import Incluye from "./incluye/Incluye.astro";
 ---
 <section class="flex w-full relative justify-center bg-(--sorrento-gris) py-8">
     <div class="flex flex-wrap w-7xl px-4 gap-y-8 gap-x-4 z-1">
@@ -18,8 +18,20 @@
                 <!--falta hacer la interactividad -->
                 <a href="" class="flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul)">Estoy interesado <img src="/svg/down.svg" alt="" class="w-5"></a>
             </div>
-            <div class="flex w-1/2">2</div>
-            <div class="flex w-1/4">3</div>
+            <!--falta poner todas las imagenes de los apartamentos -->
+            <div class="flex justify-center w-1/2 bg-(--sorrento-azul) p-4">
+                <img src="/img/apartamentos/tipo-5a.webp" alt="imagen del plano del apartamento 5a">
+            </div>
+            <div class="flex flex-col w-1/4 justify-center p-4 bg-(--sorrento-blanco) gap-6">
+                <p class="text-lg text-(--sorrento-azul) font-(--font-medium)"><span class="text-(--sorrento-azul-oscuro) font-(--font-black)">Área construida: </span> 41.66 metros cuadrados</p>
+                <div class="grid grid-cols-2 grid-rows-3 gap-2">
+                    <Incluye iconPath="/svg/alcoba.svg" text="Una alcoba" />
+                    <Incluye iconPath="/svg/estudio.svg" text="Un estudio" />
+                    <Incluye iconPath="/svg/bano.svg" text="Un baño funcional" />
+                    <Incluye iconPath="/svg/bano-ajust.svg" text="Un espacio para futuro baño" />
+                </div>
+                <div></div>
+            </div>
         </div>
     </div>    
     <img src="/svg/sorrento-content-1" alt="Contenido gráfico del logo de sorrento" class="absolute">

@@ -24,7 +24,7 @@
 }
 
 .btn-active{
-    @apply bg-(--sorrento-azul) text-(--sorrento-blanco) cursor-default w-[292px] rounded-r-none;
+    @apply bg-(--sorrento-azul) text-(--sorrento-blanco) cursor-default w-[300px] rounded-r-none;
 }
 
 @theme{
