@@ -1,39 +1,77 @@
 ---
+import Content from "./incluye/Content.astro";
 import Incluye from "./incluye/Incluye.astro";
+
+const {id} = Astro.props;
 ---
-<section class="flex w-full relative justify-center bg-(--sorrento-gris) py-8">
+<section id={id} class="flex w-full relative justify-center bg-(--sorrento-gris) py-8">
     <div class="flex flex-wrap w-7xl px-4 gap-y-8 gap-x-4 z-1">
         <h2 class="w-full text-(--sorrento-azul) font-(--font-black) text-4xl">Modelos de apartamentos</h2>
-        <div class="flex w-full rounded-lg">
-            <div class="flex flex-col w-1/4 justify-center p-4 bg-(--sorrento-blanco) gap-4">
+        <div class="flex w-full rounded-lg overflow-hidden">
+            <div class="flex flex-col w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-4 ">
                 <img src="/svg/Sorrento.svg" alt="" class="h-24">
                 <h3 class="text-xl text-(--sorrento-azul-oscuro) font-(--font-black) text-center">Diseños apartamentos</h3>
                 <div class="flex flex-col w-full gap-2">
-                    <button class="btn-apartamento btn-active">Tipo 5A</button>
-                    <button class="btn-apartamento">Tipo 6</button>
-                    <button class="btn-apartamento">Tipo 4</button>
-                    <button class="btn-apartamento">Tipo 4A</button>
+                    <button data-card="1,4,5,8" data-content="1" class="btn-apartamento btn-active">Tipo 5A</button>
+                    <button data-card="3,5,8" data-content="2" class="btn-apartamento">Tipo 6</button>
+                    <button data-card="2,6,5,7,8" data-content="3" class="btn-apartamento">Tipo 4</button>
+                    <button data-card="1,4,5,6,7,8" data-content="4" class="btn-apartamento">Tipo 4A</button>
                 </div>
                 <p class="text-sm font-(--font-medium) text-(--sorrento-negro)">Los apartamentos se entregan en Obra gris funcional.</p>
                 <!--falta hacer la interactividad -->
                 <a href="" class="flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul)">Estoy interesado <img src="/svg/down.svg" alt="" class="w-5"></a>
             </div>
+
             <!--falta poner todas las imagenes de los apartamentos -->
             <div class="flex justify-center w-1/2 bg-(--sorrento-azul) p-4">
-                <img src="/img/apartamentos/tipo-5a.webp" alt="imagen del plano del apartamento 5a">
+
+                <img id="apt-1" src="/img/apartamentos/tipo-5a.webp" alt="imagen del plano del apartamento 5a" class="apt">
+                <img id="apt-2" src="/img/apartamentos/tipo-6.webp" alt="imagen del plano del apartamento 6" class="apt hidden">
+                <img id="apt-3" src="/img/apartamentos/tipo-4.webp" alt="imagen del plano del apartamento 4" class="apt hidden">
+                <img id="apt-4" src="/img/apartamentos/tipo-4a.webp" alt="imagen del plano del apartamento 4a" class="apt hidden">
+
             </div>
-            <div class="flex flex-col w-1/4 justify-center p-4 bg-(--sorrento-blanco) gap-6">
-                <p class="text-lg text-(--sorrento-azul) font-(--font-medium)"><span class="text-(--sorrento-azul-oscuro) font-(--font-black)">Área construida: </span> 41.66 metros cuadrados</p>
-                <div class="grid grid-cols-2 grid-rows-3 gap-2">
-                    <Incluye iconPath="/svg/alcoba.svg" text="Una alcoba" />
-                    <Incluye iconPath="/svg/estudio.svg" text="Un estudio" />
-                    <Incluye iconPath="/svg/bano.svg" text="Un baño funcional" />
-                    <Incluye iconPath="/svg/bano-ajust.svg" text="Un espacio para futuro baño" />
+
+            <div class="flex flex-col w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-6">
+
+                <Content id='content-1' content="41.66 metros cuadrados" class="content" />
+                <Content id='content-2' content="60.57 metros cuadrados" class="content hidden" />
+                <Content id='content-3' content="62.49 metros cuadrados" class="content hidden" />
+                <Content id='content-4' content="62.56  metros cuadrados" class="content hidden" />
+
+                <div class="grid grid-cols-2 gap-2">
+                    <!-- alcobas -->
+                    <Incluye id="card-1" iconPath="/svg/alcoba.svg" text="Una alcoba" class="srr-card"/>
+                    <Incluye id="card-2" iconPath="/svg/alcoba.svg" text="Dos alcobas" class="srr-card hidden"/>
+                    <Incluye id="card-3" iconPath="/svg/alcoba.svg" text="Tres alcobas" class="srr-card hidden"/>
+
+                    <!-- estudio -->
+                    <Incluye id="card-4" iconPath="/svg/estudio.svg" text="Un estudio" class="srr-card" />
+                    
+                    <!--Bano funcional-->
+                    <Incluye id="card-5" iconPath="/svg/bano.svg" text="Un baño funcional" class="srr-card" />
+
+                    <!--lavanderia -->
+                    <Incluye id="card-6" iconPath="/svg/lavanderia.svg" text="Zona de lavanderia" class="srr-card hidden" />
+
+                    <!-- -->
+                    <Incluye id="card-7" iconPath="/svg/estudio-ajust.svg" text="Un espacio para futuro estudio" class="srr-card hidden" />
+                    <Incluye id="card-8" iconPath="/svg/bano-ajust.svg" text="Un espacio para futuro baño" class="srr-card" />
+
                 </div>
-                <div></div>
+                <div class="flex flex-col gap-2 text-(--sorrento-azul-oscuro)">
+
+                    <p class="font-(--font-black) text-lg">Ubicación</p>
+                    <p class="font-(--font-medium) text-base">Cerca a las proximas estaciones del metro de bogotá</p>
+                    <div class="overflow-hidden rounded-lg border border-(--sorrento-azul-oscuro)">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0052853223433!2d-74.11087412432389!3d4.593073242579756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99c90f4f0eaf%3A0x74f946fde8fb3e70!2sConjunto%20Residencial%20Sorrento!5e0!3m2!1ses!2sco!4v1750448424285!5m2!1ses!2sco" width="280" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>    
-    <img src="/svg/sorrento-content-1" alt="Contenido gráfico del logo de sorrento" class="absolute">
-    <img src="/svg/sorrento-content-2" alt="Contenido gráfico del logo de sorrento" class="absolute">
+    <img src="/svg/sorrento-content-3.svg" alt="Contenido gráfico del logo de sorrento" class="absolute right-1/5 top-2">
+    <img src="/svg/sorrento-content-4.svg" alt="Contenido gráfico del logo de sorrento" class="absolute left-1/20 top-1/6">
 </section>
+<script src="/src/scripts/apartamentos.js" />

@@ -12,8 +12,8 @@ import Apartamentos from '../components/Apartamentos.astro'
 <Layout>
 	<Banner />
 	<main class="flex flex-col gap-8 w-full items-center bg-(--sorrento-azul-oscuro-2)">
-		<Header />
-		<Descripcion />
-		<Apartamentos />
+		<Header ref1="#description" ref2="#apt" />
+		<Descripcion id="description" />
+		<Apartamentos id="apt" />
 	</main>
 </Layout>

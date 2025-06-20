@@ -1,0 +1,13 @@
+---
+const {content, class: className , id} = Astro.props;
+---
+
+<p 
+id={id}
+class={`${className} text-lg text-(--sorrento-azul) font-(--font-medium) content`}
+>
+<span 
+class="text-(--sorrento-azul-oscuro) font-(--font-black)"
+>Área construida: 
+</span>{content}
+</p>
