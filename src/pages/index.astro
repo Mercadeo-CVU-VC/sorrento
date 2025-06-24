@@ -6,14 +6,16 @@ import Header from '../components/Header.astro';
 import "../styles/global.css";
 import Descripcion from '../components/Descripcion.astro';
 import Apartamentos from '../components/Apartamentos.astro'
+import Zc from '../components/Zc.astro';
 
 ---
 
 <Layout>
 	<Banner />
 	<main class="flex flex-col gap-8 w-full items-center bg-(--sorrento-azul-oscuro-2)">
-		<Header ref1="#description" ref2="#apt" />
+		<Header ref1="#description" ref2="#apt" ref3="#zonasComunes"/>
 		<Descripcion id="description" />
 		<Apartamentos id="apt" />
+		<Zc id="zonasComunes"/>
 	</main>
 </Layout>

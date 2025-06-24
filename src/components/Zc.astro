@@ -1,0 +1,25 @@
+---
+import Cardzc from "./zc/Cardzc.astro";
+
+const {id} = Astro.props;
+---
+
+<section id={id} class="flex w-full relative justify-center py-8">
+    <div class="flex flex-wrap w-7xl px-4 gap-y-8 gap-x-4 z-1">
+        <h2 class="w-full text-(--sorrento-amarillo) font-(--font-black) text-4xl">Zonas comunes</h2>
+        <div class="grid grid-cols-3 gap-y-6 gap-x-10">
+            <Cardzc imgPath="/img/zc/zc_recepcion.webp" text="Recepción con sala de espera"/>
+            <Cardzc imgPath="/img/zc/zc_salon_multiple.webp" text="Salón múltiple"/>
+            <Cardzc imgPath="/img/zc/zc_gimnasio.webp" text="Gimnasio - aeróbicos"/>
+            <Cardzc imgPath="/img/zc/zc_salon_infantil.webp" text="Salón infantil"/>
+            <Cardzc imgPath="/img/zc/zc_co_working.webp" text="Co-Working"/>
+            <Cardzc imgPath="/img/zc/zc_ejercicio_biosaludable.webp" text="Ejercicio biosaludable"/>
+        </div>
+        <div class="flex flex-col w-full p-4 gap-2 bg-(--sorrento-amarillo) rounded-lg">
+            <h4 class="text-lg text-(--sorrento-azul-oscuro) font-(--font-bold)">Otros espacios:</h4>
+            <p class="text-base text-(--sorrento-azul-oscuro) font-(--font-medium)">Adicionalmente el proyecto contará con: Despachos, salón de vídeo y audiovisuales, bicicleteros, BBQ, depósitos tipo locker, caminos y recreación al aire libre y zona comercial en primer piso (26 locales comerciales).</p>
+        </div>
+    </div>
+    <img src="/svg/sorrento-content-1.svg" alt="Contenido gráfico del logo de sorrento" class="absolute right-10 bottom-7">
+    <img src="/svg/sorrento-content-2.svg" alt="Contenido gráfico del logo de sorrento" class="absolute right-1/4 top-1 w-1/11 rotate-90">
+</section>
