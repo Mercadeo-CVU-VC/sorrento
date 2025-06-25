@@ -1,3 +1,6 @@
+---
+const {ref} = Astro.props;
+---
 <section class="flex h-dvh relative justify-center">
 
   <div class="flex xl:w-full px-4 py-8 z-1 select-none">    
@@ -7,8 +10,7 @@
         <p class="text-(--sorrento-amarillo) text-6xl">Torre 4</p>
       </div>
 
-      <!--falta poner enlace-->
-      <a href="" class="flex w-fit gap-6 text-(--sorrento-blanco) text-2xl px-16 py-4 bg-(--sorrento-blanco)/30 rounded-full border-2 border-(--sorrento-blanco)">Ver proyecto <img src="/svg/down.svg" alt="" class="w-7 h-auto"></a>
+      <a href={ref} class="flex w-fit gap-6 text-(--sorrento-blanco) text-2xl px-16 py-4 bg-(--sorrento-blanco)/30 rounded-full border-2 border-(--sorrento-blanco)">Ver proyecto <img src="/svg/down.svg" alt="" class="w-7 h-auto"></a>
       
     </div>
 

@@ -31,6 +31,28 @@ html {
     @apply bg-(--sorrento-azul) text-(--sorrento-blanco) cursor-default w-[300px] rounded-r-none;
 }
 
+/*estilos boton formulario*/
+.btn-form{
+    @apply py-2 px-4 text-sm text-(--sorrento-azul) cursor-pointer font-(--font-medium);
+}
+
+.btn-form:hover{
+    @apply text-(--sorrento-blanco) bg-(--sorrento-azul) rounded-full;
+}
+
+.active-form{
+    @apply text-(--sorrento-blanco) bg-(--sorrento-azul) rounded-full cursor-default ;
+}
+
+/*estilos inputs formulario*/
+
+.form-label{
+    @apply flex flex-col text-sm text-(--sorrento-azul) gap-1;
+}
+.form-input{
+    @apply text-xs text-(--sorrento-negro) border-1 border-(--sorrento-negro) px-2 w-full py-2 rounded-lg;
+}
+
 @theme{
     /*Pesos de las fuentes*/
     --font-black: 900;

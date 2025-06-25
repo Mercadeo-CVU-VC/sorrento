@@ -1,8 +1,9 @@
 ---
-const {ref1,ref2,ref3,ref4} = Astro.props;
+const {ref1,ref2,ref3,ref4,id} = Astro.props;
 ---
 <!--Falta hacer los enlaces a las secciones de las páginas -->
-<section class="flex py-16">
+<section class="flex py-16"
+id={id}>
     <nav class="flex gap-4 w-fit bg-(--sorrento-azul) py-2 px-6 rounded-full">
         <a href={ref1} class="btn-header">Descripción</a>
         <a href={ref2} class="btn-header">Apartamentos</a>

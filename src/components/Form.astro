@@ -1,7 +1,37 @@
 ---
+import Colaborador from "./forms/Colaborador.astro";
+import Referido from "./forms/Referido.astro";
 
+const {id} = Astro.props;
 ---
+<section id={id} class="flex w-full relative justify-center bg-(--sorrento-gris) py-8">
+    <div class="flex flex-col w-7xl px-4 gap-y-4 z-1">
+        <h2 class="w-full text-(--sorrento-azul) font-(--font-black) text-4xl">Quiero más información</h2>
+        <p class="text-sm font-(--font-medium) text-(--sorrento-negro)">Si estás pensando en construir tu hogar, invertir o conoces a alguien que esté interesado, ¡este es el momento!</p>
+        <p class="text-sm font-(--font-medium) text-(--sorrento-negro)">Ingresa los datos requeridos y te mandamos toda la información sobre el proyecto de Sorrento</p>
+        <div class="flex overflow-hidden rounded-lg">
+            <div class="flex w-3/5 overflow-hidden relative">
 
+                <img src="/img/form/img-form.webp" alt="" class="h-full w-auto object-cover absolute">
+                <div>
 
+                </div>
 
+            </div>
+            <div class="flex flex-col w-2/5 bg-(--sorrento-blanco) justify-center items-center px-16 py-4 gap-4 h-145">
 
+                <nav class="flex gap-4 p-2 bg-(--sorrento-gris) rounded-full shadow-md">
+
+                    <button class="btn-form active-form">Soy colaborador</button>
+                    <button class="btn-form">Quiero referir</button>
+
+                </nav>
+
+                <!--<Colaborador /> -->
+                <Referido />
+                
+            </div>
+        </div>
+    </div>    
+</section>
+<script src="/src/scripts/apartamentos.js" />

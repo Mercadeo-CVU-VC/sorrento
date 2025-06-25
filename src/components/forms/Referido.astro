@@ -1,3 +1,68 @@
 ---
-
+const EnlaceForm = "https://formsubmit.co/sdespitia@cvu.com.co";
 ---
+
+<section class="flex flex-col gap-2">
+
+  <h4 class="text-base text-(--sorrento-azul) font-(--font-bold)">Si puedes soñarlo puedes cumplirlo</h4>
+
+  <form action={EnlaceForm} method="POST" class="flex flex-col gap-4">
+    <!-- Asunto (invisible pero necesario para personalizar el correo recibido) -->
+    <input type="hidden" name="_subject" value="Formulario de prueba para referido" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table">
+
+    <div class="grid grid-cols-2 gap-2">
+        <p class="col-span-2">Datos referido</p>
+        <!-- Campos visibles -->
+        <label class="form-label col-span-2">
+            Nombre completo:
+            <input class="form-input" type="text" name="Nombre referido" placeholder="Ingrese su nombre" required />
+        </label>
+    
+        <label class="form-label">
+            Correo electrónico:
+            <input class="form-input" type="email" name="Correo referido" placeholder="Ingrese su correo electrónico" required />
+        </label>
+    
+        <label class="form-label">
+            Celular:
+            <input class="form-input" type="tel" name="Celular Referido" placeholder="Ingrese su número de contacto" required />
+        </label>
+    </div>
+
+    <input type="text" name="--------------------" value="" class="hidden">
+
+    <div class="grid grid-cols-2 gap-2">
+        <p class="col-span-2">Datos referidor</p>
+        <!-- Campos visibles -->
+        <label class="form-label col-span-2">
+            Nombre completo:
+            <input class="form-input" type="text" name="Nombre Referidor" placeholder="Ingrese su nombre" required />
+        </label>
+    
+        <label class="form-label">
+            Ciudad:
+            <input class="form-input" type="text" name="Ciudad Referidor" placeholder="Ingrese su ciudad" required />
+        </label>
+    
+        <label class="form-label">
+            Correo electrónico:
+            <input class="form-input" type="email" name="Correo Referidor" placeholder="Ingrese su correo electrónico" required />
+        </label>
+    
+        <label class="form-label">
+            Área:
+            <input class="form-input" type="text" name="Área referidor" placeholder="Ingrese el área que pertenece" required />
+        </label>
+    
+        <label class="form-label">
+            Cargo:
+            <input class="form-input" type="text" name="Cargo Referidor" placeholder="Ingrese su cargo" required />
+        </label>
+    </div>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="py-2 px-4 w-full bg-(--sorrento-azul) text-(--sorrento-blanco) text-base font-(--font-medium) rounded-full cursor-pointer hover:bg-(--sorrento-azul-oscuro)">Enviar</button>
+  </form>
+</section>

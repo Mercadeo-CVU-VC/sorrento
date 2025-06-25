@@ -2,50 +2,55 @@
 const EnlaceForm = "https://formsubmit.co/sdespitia@cvu.com.co";
 ---
 
-<section class="formulario">
-  <form action={EnlaceForm} method="POST">
+<section class="flex flex-col">
+
+  <h4 class="text-base text-(--sorrento-azul) font-(--font-bold)">Si puedes soñarlo puedes cumplirlo</h4>
+
+  <form action={EnlaceForm} method="POST" class="flex flex-col gap-4">
     <!-- Asunto (invisible pero necesario para personalizar el correo recibido) -->
     <input type="hidden" name="_subject" value="Formulario de prueba para colaborador" />
     <input type="hidden" name="_captcha" value="false" />
 
-    <!-- Campos visibles -->
-    <label>
-      Nombre completo:
-      <input type="text" name="nombre" required />
-    </label>
+    <div class="grid grid-cols-2 gap-2">
+      <!-- Campos visibles -->
+      <label class="form-label">
+        Nombre completo:
+        <input class="form-input" type="text" name="Nombre" placeholder="Ingrese su nombre" required />
+      </label>
+  
+      <label class="form-label">
+        Ciudad:
+        <input class="form-input" type="text" name="Ciudad" placeholder="Ingrese su ciudad" required />
+      </label>
+  
+      <label class="form-label">
+        Correo electrónico:
+        <input class="form-input" type="email" name="Correo" placeholder="Ingrese su correo electrónico" required />
+      </label>
+  
+      <label class="form-label">
+        Celular:
+        <input class="form-input" type="tel" name="Celular" placeholder="Ingrese su número de contacto" required />
+      </label>
+  
+      <label class="form-label">
+        Área:
+        <input class="form-input" type="text" name="Área" placeholder="Ingrese el área que pertenece" required />
+      </label>
+  
+      <label class="form-label">
+        Cargo:
+        <input class="form-input" type="text" name="Cargo" placeholder="Ingrese su cargo" required />
+      </label>
+    </div>
 
-    <label>
-      Ciudad:
-      <input type="text" name="ciudad" required />
-    </label>
-
-    <label>
-      Correo electrónico:
-      <input type="email" name="correo" required />
-    </label>
-
-    <label>
-      Celular:
-      <input type="tel" name="celular" required />
-    </label>
-
-    <label>
-      Área:
-      <input type="text" name="area" required />
-    </label>
-
-    <label>
-      Cargo:
-      <input type="text" name="cargo" required />
-    </label>
-
-    <!-- Política de tratamiento de datos -->
+    <!-- Política de tratamiento de datos 
     <label>
       <input type="checkbox" name="politica" required />
       Acepto la <a href="/politica-de-datos" target="_blank">política de tratamiento de datos</a>.
-    </label>
+    </label>-->
 
     <!-- Botón de envío -->
-    <button type="submit">Enviar</button>
+    <button type="submit" class="py-2 px-4 w-full bg-(--sorrento-azul) text-(--sorrento-blanco) text-base font-(--font-medium) rounded-full cursor-pointer hover:bg-(--sorrento-azul-oscuro)">Enviar</button>
   </form>
 </section>
