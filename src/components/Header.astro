@@ -5,9 +5,34 @@ const {ref1,ref2,ref3,ref4,id} = Astro.props;
 <section class="flex py-16"
 id={id}>
     <nav class="flex gap-4 w-fit bg-(--sorrento-azul) py-2 px-6 rounded-full">
-        <a href={ref1} class="btn-header">Descripción</a>
-        <a href={ref2} class="btn-header">Apartamentos</a>
-        <a href={ref3} class="btn-header">Zonas comunes</a>
-        <a href={ref4} class="btn-header-2">Estoy interesado</a>
+        <a href={ref1} class="a-1 btn-header">Descripción</a>
+        <a href={ref2} class="a-1 btn-header">Apartamentos</a>
+        <a href={ref3} class="a-1 btn-header">Zonas comunes</a>
+        <a href={ref4} class="a-1 btn-header-2">Estoy interesado</a>
     </nav>
 </section>
+
+
+<script>
+  document.querySelectorAll('a.a-1').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // Evita el comportamiento predeterminado
+
+      const targetId = this.getAttribute('href').substring(1); // "form"
+      const target = document.getElementById(targetId);
+
+      if (target) {
+        // Scroll suave
+        target.scrollIntoView({ behavior: 'smooth' });
+
+        //  Elimina el # de la URL (por si algo lo puso igual)
+        if (history.pushState) {
+          history.pushState(null, window.location.pathname);
+        } else {
+          // fallback muy antiguo
+          window.location.hash = '';
+        }
+      }
+    });
+  });
+</script>

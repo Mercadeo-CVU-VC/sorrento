@@ -10,11 +10,14 @@ const {id} = Astro.props;
         <p class="text-sm font-(--font-medium) text-(--sorrento-negro)">Si estás pensando en construir tu hogar, invertir o conoces a alguien que esté interesado, ¡este es el momento!</p>
         <p class="text-sm font-(--font-medium) text-(--sorrento-negro)">Ingresa los datos requeridos y te mandamos toda la información sobre el proyecto de Sorrento</p>
         <div class="flex overflow-hidden rounded-lg">
-            <div class="flex w-3/5 overflow-hidden relative">
+            <div class="flex w-3/5 overflow-hidden relative items-end">
 
-                <img src="/img/form/img-form.webp" alt="" class="h-full w-auto object-cover absolute">
-                <div>
-
+                <img src="/img/form/img-form.webp" alt="" class="h-full w-auto object-cover absolute object-center hidden" id="img-1">
+                <img src="/img/form/img-form-2.webp" alt="" class="h-full w-auto object-cover absolute object-center" id="img-2">
+                <div class="flex flex-col w-115 p-4 bg-(--sorrento-azul) z-1 h-fit m-6 rounded-lg gap-4">
+                    <h4 class="text-xl text-(--sorrento-blanco) font-(--font-bold)">Si puedes soñarlo, puedes cumplirlo</h4>
+                    <p class="text-base text-(--sorrento negro) font-(--font-medium)">Como trabajador de <span class="font-(--font-bold)">CVU</span> o <span class="font-(--font-bold)">Viajes Circular</span>, tendrás el beneficio de acceder a la línea de crédito hipotecario para hacer realidad este sueño.</p>
+                    <button class="w-full py-2 bg-(--sorrento-blanco) rounded-full text-base text-(--sorrento-azul) font-(--font-medium)">Conoce más aquí</button>
                 </div>
 
             </div>
@@ -22,16 +25,19 @@ const {id} = Astro.props;
 
                 <nav class="flex gap-4 p-2 bg-(--sorrento-gris) rounded-full shadow-md">
 
-                    <button class="btn-form active-form">Soy colaborador</button>
-                    <button class="btn-form">Quiero referir</button>
+                    <button class="btn-form active-form" id="col">Soy colaborador</button>
+                    <button class="btn-form" id="ref">Quiero referir</button>
 
                 </nav>
 
-                <!--<Colaborador /> -->
-                <Referido />
+                <Colaborador class='' id="cont-col"/>
+                <Referido class="hidden" id="cont-ref"/>
                 
             </div>
+
+            <img src="/svg/sorrento-content-5.svg" alt="Contenido gráfico del logo de sorrento" class="absolute left-0 top-10">
+            <img src="/svg/sorrento-content-6.svg" alt="Contenido gráfico del logo de sorrento" class="absolute right-8 bottom-12">
         </div>
     </div>    
 </section>
-<script src="/src/scripts/apartamentos.js" />
+<script src="/src/scripts/form.js" />

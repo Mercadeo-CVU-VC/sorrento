@@ -1,8 +1,12 @@
 ---
 const EnlaceForm = "https://formsubmit.co/sdespitia@cvu.com.co";
+const {class: className,id} = Astro.props;
 ---
 
-<section class="flex flex-col gap-2">
+<section 
+class=`flex flex-col gap-2 ${className}`
+id={id}
+>
 
   <h4 class="text-base text-(--sorrento-azul) font-(--font-bold)">Si puedes soñarlo puedes cumplirlo</h4>
 

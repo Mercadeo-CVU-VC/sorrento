@@ -15,8 +15,8 @@ import Footer from '../components/Footer.astro';
 	<Banner ref="#content"/>
 	<main class="flex flex-col gap-8 w-full items-center bg-(--sorrento-azul-oscuro-2)">
 		<Header ref1="#description" ref2="#apt" ref3="#zonasComunes" ref4="#form" id='content'/>
-		<Descripcion id="description" />
-		<Apartamentos id="apt" />
+		<Descripcion id="description" ref="#form"/>
+		<Apartamentos id="apt" ref="#form"/>
 		<Zc id="zonasComunes"/>
 		<Form id="form"/>
 	</main>

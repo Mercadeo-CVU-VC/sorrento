@@ -1,5 +1,5 @@
 ---
-const {id} = Astro.props;
+const {id,ref} = Astro.props;
 ---
 
 <section id={id} class="flex w-full relative justify-center">
@@ -18,7 +18,7 @@ const {id} = Astro.props;
         </div>
         <div class="flex w-full justify-center">
             <!--falta incluir la acción -->
-            <a href="" class="flex gap-4 bg-(--sorrento-amarillo) text-lg text-(--sorrento-azul-oscuro) font-(--font-bold) rounded-full py-4 px-16">Estoy interesado <img src="/svg/down-dark.svg" alt=""></a>
+            <a href={ref} class="a-1 flex gap-4 bg-(--sorrento-amarillo) text-lg text-(--sorrento-azul-oscuro) font-(--font-bold) rounded-full py-4 px-16">Estoy interesado <img src="/svg/down-dark.svg" alt=""></a>
         </div>
     </div>
     <img src="/svg/sorrento-content-1.svg" alt="Contenido gráfico del logo de sorrento" class="absolute left-0 bottom-3">
