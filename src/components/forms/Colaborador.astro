@@ -1,22 +1,71 @@
 ---
-const EnlaceForm = "https://formsubmit.co/sdespitia@cvu.com.co";
+//const EnlaceForm = "https://formsubmit.co/sdespitia@cvu.com.co";
 const {class: className,id} = Astro.props;
 ---
 <!-- lcpatino@cvu.com.co --> 
 <section 
-class=`flex flex-col ${className}`
+class=`flex flex-col gap-2 ${className}`
 id={id}
 >
 
   <h4 class="text-base text-(--sorrento-azul) font-(--font-bold)">Si puedes soñarlo puedes cumplirlo</h4>
 
+  <form class="flex flex-col gap-4" action='https://forms.zohopublic.com/noresponder/form/ColaboradorSorrento/formperma/MilDkZc0-I0IoRaYl-VvPyR9-jlcb284vX8B1KCK7xk/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+
+    <input type="hidden" name="zf_referrer_name" value=""><!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
+
+    <input type="hidden" name="zf_redirect_url" value=""><!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->
+
+    <input type="hidden" name="zc_gad" value=""><!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
+    
+    <div class="grid grid-cols-2 gap-2">
+
+      <!--Name-->
+      <label class="form-label"> Nombre completo * 
+        <input class="form-input" type="text" maxlength="255" name="Name_First" fieldType=7 placeholder="Ingrese sus nombres" required/>
+      </label>
+      <!-- <input type="text" maxlength="255" name="Name_Last" fieldType=7 placeholder="Ingrese sus apellidos" />>-->
+
+      <!--Email-->
+      <label class="form-label"> Correo electrónico *
+        <input class="form-input" type="text" maxlength="255" name="Email" value="" fieldType=9 placeholder="Ingrese su correo electrónico" required/>
+      </label>
+
+      <!--Phone-->
+      <label class="form-label"> Celular *
+        <input class="form-input" type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" placeholder="Ingrese su número de celular" required/>
+      </label>
+      
+      <!--Ciudad-->
+      <label class="form-label"> Ciudad *
+        <input class="form-input"   type="text" name="SingleLine" value="" fieldType=1 maxlength="255" placeholder="Ingrese su ciudad" required/>
+      </label>
+
+      <!--Area-->
+      <label class="form-label"> Área *
+        <input class="form-input"  type="text" name="SingleLine1" value="" fieldType=1 maxlength="255" placeholder="Ingrese el área que pertenece" required />
+      </label>
+
+      <!--Cargo-->
+      <label class="form-label"> Cargo *
+        <input class="form-input" type="text" name="SingleLine2" value="" fieldType=1 maxlength="255" placeholder="Ingrese su cargo" required/>
+      </label>
+
+    </div>
+    <button class="py-2 px-4 w-full bg-(--sorrento-azul) text-(--sorrento-blanco) text-base font-(--font-medium) rounded-full cursor-pointer hover:bg-(--sorrento-azul-oscuro)" type="submit">Enviar</button>
+</form>
+
+
+
+
+  <!-- 
   <form action={EnlaceForm} method="POST" class="flex flex-col gap-4">
-    <!-- Asunto (invisible pero necesario para personalizar el correo recibido) -->
+     Asunto (invisible pero necesario para personalizar el correo recibido) 
     <input type="hidden" name="_subject" value="Formulario de prueba para colaborador" />
     <input type="hidden" name="_captcha" value="false" />
 
     <div class="grid grid-cols-2 gap-2">
-      <!-- Campos visibles -->
+       Campos visibles 
       <label class="form-label">
         Nombre completo:
         <input class="form-input" type="text" name="Nombre" placeholder="Ingrese su nombre" required />
@@ -48,13 +97,14 @@ id={id}
       </label>
     </div>
 
-    <!-- Política de tratamiento de datos 
+     Política de tratamiento de datos 
     <label>
       <input type="checkbox" name="politica" required />
       Acepto la <a href="/politica-de-datos" target="_blank">política de tratamiento de datos</a>.
-    </label>-->
+    </label>
 
-    <!-- Botón de envío -->
+     Botón de envío 
     <button type="submit" class="py-2 px-4 w-full bg-(--sorrento-azul) text-(--sorrento-blanco) text-base font-(--font-medium) rounded-full cursor-pointer hover:bg-(--sorrento-azul-oscuro)">Enviar</button>
-  </form>
+  </form> -->
+  
 </section>
