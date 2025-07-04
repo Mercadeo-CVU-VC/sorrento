@@ -1,7 +1,17 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
-
-<section>
-    <h1>prueba</h1>
-</section>
+<Layout title="Gracias" class="flex flex-col justify-between h-dvh">
+    <main class="flex w-full h-full justify-center bg-(--sorrento-gris)">
+        <section class="flex flex-col w-7xl items-center justify-center">
+            <div class="flex flex-col gap-6 items-center p-8 bg-(--sorrento-blanco) rounded-lg w-lg text-center">
+                <img src="/svg/thx.svg" class="w-20" alt="">
+                <h1 class="text-2xl text-(--sorrento-azul-oscuro) font-(--font-bold)">Su formulario se ha enviado satisfactoriamente. Nos pondremos en contacto lo más pronto posible.</h1>
+                <a href="/" class="bg-(--sorrento-azul) py-2 px-4 rounded-full text-(--sorrento-blanco) text-lg hover:bg-(--sorrento-azul-oscuro)">Regresar al inicio</a>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
