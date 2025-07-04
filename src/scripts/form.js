@@ -5,7 +5,9 @@ const imgCol = document.getElementById('img-2');
 const imgRef = document.getElementById('img-1');
 
 const contCol = document.getElementById('cont-col');
-const contRef = document.getElementById('cont-ref')
+const contRef = document.getElementById('cont-ref');
+
+const beneficio = document.getElementById('beneficio')
 
 btnCol.addEventListener('click', ()=>{
 
@@ -16,7 +18,9 @@ btnCol.addEventListener('click', ()=>{
     imgRef.classList.add('hidden');
 
     contCol.classList.remove('hidden');
-    contRef.classList.add('hidden')
+    contRef.classList.add('hidden');
+
+    beneficio.classList.remove('hidden');
 
 })
 
@@ -30,5 +34,7 @@ btnRef.addEventListener('click', ()=>{
 
     contCol.classList.add('hidden');
     contRef.classList.remove('hidden')
+
+    beneficio.classList.add('hidden');
 
 })
