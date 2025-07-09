@@ -6,14 +6,14 @@ html {
 
 /*Estilo general botón header*/
 .btn-header{
-    @apply py-2 px-4 font-(--font-medium) text-(--sorrento-blanco) text-lg;
+    @apply py-2 px-2 lg:px-4 font-(--font-medium) text-(--sorrento-blanco) text-xs lg:text-lg;
 }
 .btn-header:hover{
     @apply underline;
 }
 
 .btn-header-2{
-    @apply py-2 px-4 text-lg bg-(--sorrento-blanco) text-(--sorrento-azul) rounded-full;
+    @apply py-2 px-4 text-lg bg-(--sorrento-blanco) text-(--sorrento-azul) rounded-full hidden lg:block;
 }
 .btn-header-2:hover{
     @apply bg-(--sorrento-gris) text-(--sorrento-azul-oscuro);
