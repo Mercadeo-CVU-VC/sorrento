@@ -4,25 +4,25 @@ import Incluye from "./incluye/Incluye.astro";
 
 const {id,ref} = Astro.props;
 ---
-<section id={id} class="flex w-full relative justify-center bg-(--sorrento-gris) py-8">
-    <div class="flex flex-wrap w-7xl px-4 gap-y-8 gap-x-4 z-1">
-        <h2 class="w-full text-(--sorrento-azul) font-(--font-black) text-4xl">Modelos de apartamentos</h2>
-        <div class="flex w-full rounded-lg overflow-hidden">
-            <div class="flex flex-col w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-4 ">
+<section id={id} class="flex w-full relative justify-center bg-(--sorrento-gris) py-4 lg:py-8">
+    <div class="flex flex-wrap w-full lg:w-7xl px-4 gap-y-8 gap-x-4 z-1">
+        <h2 class="w-full text-(--sorrento-azul) font-(--font-black) text-xl lg:text-4xl">Modelos de apartamentos</h2>
+        <div class="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden">
+            <div class="flex flex-col w-full lg:w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-2 lg:gap-4 ">
                 <img src="/svg/Sorrento.svg" alt="" class="h-24">
                 <h3 class="text-xl text-(--sorrento-azul-oscuro) font-(--font-black) text-center">Diseños apartamentos</h3>
-                <div class="flex flex-col w-full gap-2">
+                <div class="flex flex-row lg:flex-col w-full gap-2">
                     <button data-card="1,4,5,8" data-content="1" class="btn-apartamento btn-active">Tipo 5A</button>
                     <button data-card="3,5,8" data-content="2" class="btn-apartamento">Tipo 6</button>
                     <button data-card="2,6,5,7,8" data-content="3" class="btn-apartamento">Tipo 4</button>
                     <button data-card="1,4,5,6,7,8" data-content="4" class="btn-apartamento">Tipo 4A</button>
                 </div>
-                <p class="text-sm font-(--font-medium) text-(--sorrento-negro)">Los apartamentos se entregan en Obra gris funcional.</p>
-                <a href={ref} class="a-1 flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul)">Estoy interesado <img src="/svg/down.svg" alt="" class="w-5"></a>
+                <p class="text-sm font-(--font-medium) text-(--sorrento-negro) hidden lg:block">Los apartamentos se entregan en Obra gris funcional.</p>
+                <a href={ref} class="a-1 lg:flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul) hidden ">Estoy interesado <img src="/svg/down.svg" alt="" class="w-5"></a>
             </div>
 
-            <!--falta poner todas las imagenes de los apartamentos -->
-            <div class="flex justify-center w-1/2 bg-(--sorrento-azul) p-4">
+            
+            <div class="flex justify-center w-full lg:w-1/2 bg-(--sorrento-azul) p-4">
 
                 <img id="apt-1" src="/img/apartamentos/tipo-5a.webp" alt="imagen del plano del apartamento 5a" class="apt">
                 <img id="apt-2" src="/img/apartamentos/tipo-6.webp" alt="imagen del plano del apartamento 6" class="apt hidden">
@@ -31,7 +31,8 @@ const {id,ref} = Astro.props;
 
             </div>
 
-            <div class="flex flex-col w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-6">
+            <div class="flex flex-col w-full lg:w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-4 lg:gap-6">
+                <p class=" text-base lg:text-sm font-(--font-medium) text-(--sorrento-negro) lg:hidden">Los apartamentos se entregan en Obra gris funcional.</p>
 
                 <Content id='content-1' content="41.66 metros cuadrados" class="content" />
                 <Content id='content-2' content="60.57 metros cuadrados" class="content hidden" />
@@ -63,14 +64,16 @@ const {id,ref} = Astro.props;
                     <p class="font-(--font-black) text-lg">Ubicación</p>
                     <p class="font-(--font-medium) text-base">Cerca a las proximas estaciones del metro de bogotá</p>
                     <div class="overflow-hidden rounded-lg border border-(--sorrento-azul-oscuro)">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0052853223433!2d-74.11087412432389!3d4.593073242579756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99c90f4f0eaf%3A0x74f946fde8fb3e70!2sConjunto%20Residencial%20Sorrento!5e0!3m2!1ses!2sco!4v1750448424285!5m2!1ses!2sco" width="280" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.0052853223433!2d-74.11087412432389!3d4.593073242579756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99c90f4f0eaf%3A0x74f946fde8fb3e70!2sConjunto%20Residencial%20Sorrento!5e0!3m2!1ses!2sco!4v1750448424285!5m2!1ses!2sco" width="280" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
                     </div>
 
                 </div>
+                
+                <a href={ref} class="a-1 flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul) lg:hidden">Estoy interesado <img src="/svg/down.svg" alt="" class="w-5"></a>
             </div>
         </div>
     </div>    
-    <img src="/svg/sorrento-content-3.svg" alt="Contenido gráfico del logo de sorrento" class="absolute right-1/5 top-2">
-    <img src="/svg/sorrento-content-4.svg" alt="Contenido gráfico del logo de sorrento" class="absolute left-1/20 top-1/6">
+    <img src="/svg/sorrento-content-3.svg" alt="Contenido gráfico del logo de sorrento" class="absolute right-1/5 top-2 hidden lg:block">
+    <img src="/svg/sorrento-content-4.svg" alt="Contenido gráfico del logo de sorrento" class="absolute left-1/20 top-1/6 hidden lg:block">
 </section>
 <script src="/src/scripts/apartamentos.js" />
