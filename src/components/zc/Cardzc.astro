@@ -3,9 +3,9 @@ const {imgPath, text, class: className } = Astro.props;
 ---
 
 <div  
-class= 'flex flex-col w-full bg-(--sorrento-gris) p-4 gap-2 justify-center items-center rounded-lg'
+class= 'flex flex-col w-full bg-(--sorrento-gris) p-2 lg:p-4 gap-2 justify-center items-center rounded-lg'
 >
-    <p class="text-lg text-(--sorrento-azul-oscuro) font-(--font-bold) text-center">{text}</p>
+    <p class="flex items-center text-base lg:text-lg text-(--sorrento-azul-oscuro) font-(--font-bold) text-center h-12 lg:h-fit">{text}</p>
 
     {imgPath && <img src={imgPath} class="rounded-sm" />}
 
