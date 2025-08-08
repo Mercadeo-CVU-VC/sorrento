@@ -7,8 +7,6 @@ const imgRef = document.getElementById('img-1');
 const contCol = document.getElementById('cont-col');
 const contRef = document.getElementById('cont-ref');
 
-const beneficio = document.getElementById('beneficio')
-
 btnCol.addEventListener('click', ()=>{
 
     btnCol.classList.add('active-form');
@@ -19,8 +17,6 @@ btnCol.addEventListener('click', ()=>{
 
     contCol.classList.remove('hidden');
     contRef.classList.add('hidden');
-
-    beneficio.classList.remove('hidden');
 
 })
 
@@ -34,7 +30,5 @@ btnRef.addEventListener('click', ()=>{
 
     contCol.classList.add('hidden');
     contRef.classList.remove('hidden')
-
-    beneficio.classList.add('hidden');
 
 })
