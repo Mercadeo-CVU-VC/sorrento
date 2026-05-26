@@ -1,7 +1,8 @@
 ---
-const {content, class: className , id} = Astro.props;
+const {content, class: className , id, content2} = Astro.props;
 ---
 
+<!-- 
 <p 
 id={id}
 class={`${className} text-lg text-(--sorrento-azul) font-(--font-medium) content`}
@@ -11,3 +12,21 @@ class="text-(--sorrento-azul-oscuro) font-(--font-black)"
 >Área construida: 
 </span>{content}
 </p>
+-->
+
+<div id={id} class={`${className} flex flex-col gap-4 content`}>
+    <div>
+        <h4 class="text-2xl text-(--sorrento-azul-oscuro) font-(--font-bold)">Precios desde:</h4>
+        <p class="text-4xl font-(--font-bold)">{content2}</p>
+    </div>
+    <div>
+        <p 
+        class={` text-lg text-(--sorrento-azul) font-(--font-medium) `}
+        >
+        <span 
+        class="text-(--sorrento-azul-oscuro) font-(--font-black)"
+        >Área construida: 
+        </span>{content}
+        </p>
+    </div>
+</div>

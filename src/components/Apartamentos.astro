@@ -4,7 +4,7 @@ import Incluye from "./incluye/Incluye.astro";
 
 const {id,ref} = Astro.props;
 ---
-<section id={id} class="flex w-full relative justify-center bg-(--sorrento-gris) py-4 lg:py-8">
+<section id={id} class="flex w-full relative justify-center bg-(--sorrento-blanco) py-4 lg:py-8">
     <div class="flex flex-wrap w-full lg:w-7xl px-4 gap-y-8 gap-x-4 z-1">
         <h2 class="w-full text-(--sorrento-azul) font-(--font-black) text-xl lg:text-4xl">Modelos de apartamentos</h2>
         <div class="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden">
@@ -18,11 +18,11 @@ const {id,ref} = Astro.props;
                     <button data-card="1,4,5,6,7,8" data-content="4" class="btn-apartamento">Tipo 4A</button>
                 </div>
                 <p class="text-sm font-(--font-medium) text-(--sorrento-negro) hidden lg:block">Los apartamentos se entregan en Obra gris funcional.</p>
-                <a href={ref} class="a-1 lg:flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul) hidden ">Estoy interesado <img src="/svg/down.svg" alt="" class="w-5"></a>
+                <a href={ref} class="a-1 lg:flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul) hidden "><img src="/svg/down.svg" alt="" class="w-5"> Estoy interesado</a>
             </div>
 
             
-            <div class="flex justify-center w-full lg:w-1/2 bg-(--sorrento-azul) p-4">
+            <div class="flex justify-center w-full lg:w-1/2 bg-(--sorrento-gris) p-4">
 
                 <img id="apt-1" src="/img/apartamentos/tipo-5a.webp" alt="imagen del plano del apartamento 5a" class="apt">
                 <img id="apt-2" src="/img/apartamentos/tipo-6.webp" alt="imagen del plano del apartamento 6" class="apt hidden">
@@ -34,7 +34,7 @@ const {id,ref} = Astro.props;
             <div class="flex flex-col w-full lg:w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-4 lg:gap-6">
                 <p class=" text-base lg:text-sm font-(--font-medium) text-(--sorrento-negro) lg:hidden">Los apartamentos se entregan en Obra gris funcional.</p>
 
-                <Content id='content-1' content="41.66 metros cuadrados" class="content" />
+                <Content id='content-1' content="41.66 metros cuadrados" content2="$256.000.000" class="content" />
                 <Content id='content-2' content="60.57 metros cuadrados" class="content hidden" />
                 <Content id='content-3' content="62.49 metros cuadrados" class="content hidden" />
                 <Content id='content-4' content="62.56  metros cuadrados" class="content hidden" />
