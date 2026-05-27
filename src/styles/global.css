@@ -74,3 +74,49 @@ html {
 :root{
     font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
+
+
+/*Estilos pagina*/
+
+  /* Underline animado en nav links (desktop) */
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: #34a6ba;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transition: transform 200ms ease;
+    transform-origin: left;
+  }
+  .nav__link:hover::after,
+  .nav__link--active::after {
+    transform: scaleX(1);
+  }
+
+  /* Animación hamburguesa → X */
+  #hamburger-btn[aria-expanded="true"] .nav__hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  #hamburger-btn[aria-expanded="true"] .nav__hamburger-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  #hamburger-btn[aria-expanded="true"] .nav__hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Panel móvil: mantener en DOM para la transición CSS */
+  #mobile-menu[hidden] {
+    display: block !important;
+    pointer-events: none;
+  }
+  #mobile-menu.is-open {
+    z-index: 10000;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }

@@ -1,0 +1,19 @@
+---
+import Cardzc from "./zc/Cardzc.astro";
+
+const {id} = Astro.props;
+---
+
+<section id={id} class="flex w-full relative justify-center py-4 lg:py-8">
+    <div class="flex flex-wrap w-full lg:w-7xl px-4 gap-y-4  lg:gap-y-8 z-1">
+        <h2 class="w-full text-(--sorrento-azul-oscuro) font-(--font-black) text-xl lg:text-4xl">Respaldo y trayectoria</h2>
+        <p class="text-(--sorrento-negro) font-(--font-medium) text-sm lg:text-lg">Invierte con la seguridad de un proyecto que ya es una realidad tangible. Sorrento destaca por su solidez arquitectónica y una ubicación estratégica con alta proyección de valorización.</p>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-y-6 gap-x-4 lg:gap-x-10">
+            <Cardzc imgPath="/img/respaldo/img-respaldo-1.webp" text="Proyecto terminado" text2="Unidades listas para ser entregadas, se encuentran en obra gris, garantizando una inversión segura sin esperas de construcción."/>
+            <Cardzc imgPath="/img/respaldo/img-respaldo-2.webp" text="Diseño funcional" text2="Contamos con una propuesta integral que une la vida residencial con un componente comercial en el primer piso y amenidades modernas."/>
+            <Cardzc imgPath="/img/respaldo/img-respaldo-3.webp" text="Ubicación estratégica" text2="Situados en el barrio La Fragua (Localidad Antonio Nariño), nos encontramos en un punto de alta conectividad y cercanía a las futuras estaciones del Metro de Bogotá."/>
+        </div>
+        
+    </div>
+    
+</section>

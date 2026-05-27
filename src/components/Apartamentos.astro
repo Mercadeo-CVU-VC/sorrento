@@ -4,11 +4,11 @@ import Incluye from "./incluye/Incluye.astro";
 
 const {id,ref} = Astro.props;
 ---
-<section id={id} class="flex w-full relative justify-center bg-(--sorrento-blanco) py-4 lg:py-8">
+<section id={id} class="flex w-full relative justify-center  py-4 lg:py-8">
     <div class="flex flex-wrap w-full lg:w-7xl px-4 gap-y-8 gap-x-4 z-1">
         <h2 class="w-full text-(--sorrento-azul) font-(--font-black) text-xl lg:text-4xl">Modelos de apartamentos</h2>
-        <div class="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden">
-            <div class="flex flex-col w-full lg:w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-2 lg:gap-4 ">
+        <div class="shadow-2xl flex flex-col lg:flex-row w-full rounded-lg overflow-hidden">
+            <div class="flex  flex-col w-full  lg:w-1/4 justify-start p-4 bg-(--sorrento-blanco) gap-2 lg:gap-4 ">
                 <img src="/svg/Sorrento.svg" alt="" class="h-24">
                 <h3 class="text-xl text-(--sorrento-azul-oscuro) font-(--font-black) text-center">Diseños apartamentos</h3>
                 <div class="flex flex-row lg:flex-col w-full gap-2">
@@ -18,7 +18,30 @@ const {id,ref} = Astro.props;
                     <button data-card="1,4,5,6,7,8" data-content="4" class="btn-apartamento">Tipo 4A</button>
                 </div>
                 <p class="text-sm font-(--font-medium) text-(--sorrento-negro) hidden lg:block">Los apartamentos se entregan en Obra gris funcional.</p>
-                <a href={ref} class="a-1 lg:flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul) hidden "><img src="/svg/down.svg" alt="" class="w-5"> Estoy interesado</a>
+                
+                <a
+                    href="https://wa.me/573183955242"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full justify-center lg:w-fit lg:inline-flex items-center gap-[10px] bg-[#34a6ba] text-[#f2f2f2] font-semibold text-[18px] leading-normal whitespace-nowrap px-6 py-4 rounded-full shadow-[0px_1px_5px_rgba(0,0,0,0.25)] transition-all duration-200 hover:bg-[#2b8fa0] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#34a6ba] hidden"
+                    aria-label="Contáctanos por WhatsApp"
+                >
+                    <svg
+                    class="flex-shrink-0 w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    focusable="false"
+                    width="24"
+                    height="24"
+                    >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    </svg>
+                    <span class="leading-none">Estoy interesado</span>
+                </a>
+                
+                
             </div>
 
             
@@ -35,9 +58,9 @@ const {id,ref} = Astro.props;
                 <p class=" text-base lg:text-sm font-(--font-medium) text-(--sorrento-negro) lg:hidden">Los apartamentos se entregan en Obra gris funcional.</p>
 
                 <Content id='content-1' content="41.66 metros cuadrados" content2="$256.000.000" class="content" />
-                <Content id='content-2' content="60.57 metros cuadrados" class="content hidden" />
-                <Content id='content-3' content="62.49 metros cuadrados" class="content hidden" />
-                <Content id='content-4' content="62.56  metros cuadrados" class="content hidden" />
+                <Content id='content-2' content="60.57 metros cuadrados" content2="$398.000.000" class="content hidden" />
+                <Content id='content-3' content="62.49 metros cuadrados" content2="$410.000.000" class="content hidden" />
+                <Content id='content-4' content="62.56  metros cuadrados" content2="$410.000.000" class="content hidden" />
 
                 <div class="grid grid-cols-2 gap-2">
                     <!-- alcobas -->
@@ -69,7 +92,28 @@ const {id,ref} = Astro.props;
 
                 </div>
                 
-                <a href={ref} class="a-1 flex w-full gap-2 justify-center bg-(--sorrento-azul-oscuro) py-4 px-6  text-lg text-(--sorrento-blanco) font-(--font-medium) rounded-full hover:bg-(--sorrento-azul) lg:hidden">Estoy interesado <img src="/svg/down.svg" alt="" class="w-5"></a>
+                <a
+                    href="https://wa.me/573183955242"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="lg:hidden w-full justify-center lg:w-fit inline-flex items-center gap-[10px] bg-[#34a6ba] text-[#f2f2f2] font-semibold text-[18px] leading-normal whitespace-nowrap px-6 py-4 rounded-full shadow-[0px_1px_5px_rgba(0,0,0,0.25)] transition-all duration-200 hover:bg-[#2b8fa0] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#34a6ba]"
+                    aria-label="Contáctanos por WhatsApp"
+                >
+                    <svg
+                    class="flex-shrink-0 w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    focusable="false"
+                    width="24"
+                    height="24"
+                    >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    </svg>
+                    <span class="leading-none">Estoy interesado</span>
+                </a>
+                
             </div>
         </div>
     </div>    

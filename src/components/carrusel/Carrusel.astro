@@ -1,0 +1,398 @@
+---
+// Carrusel.astro
+// Componente de galería — se usa como columna derecha dentro de una sección
+// No incluye <section> propia, es un bloque autónomo embebible
+//
+// Desktop: imagen principal grande + thumbnails abajo + flechas laterales
+// Mobile:  scroll-snap horizontal + dots de paginación
+
+interface Imagen {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  imagenes?: Imagen[];
+  class?: string; // permite pasar clases extra desde el padre
+}
+
+const { imagenes = [], class: className = "" } = Astro.props;
+
+const defaultImagenes: Imagen[] = [
+  {
+    src: "/img/acabados/apt-acabado-1.webp",
+    alt: "Habitación principal con armario y cama",
+  },
+  {
+    src: "/img/acabados/apt-acabado-2.webp",
+    alt: "Cocina con estufa y mesón",
+  },
+  {
+    src: "/img/acabados/apt-acabado-3.webp",
+    alt: "Pasillo con puerta y closet",
+  },
+  {
+    src: "/img/acabados/apt-acabado-4.webp",
+    alt: "Área de cocina con granito",
+  },
+  {
+    src: "/img/acabados/apt-acabado-5.webp",
+    alt: "Cuarto de baño",
+  },
+  {
+    src: "/img/acabados/apt-acabado-6.webp",
+    alt: "Vista general cocina con salida",
+  },
+  {
+    src: "/img/acabados/apt-acabado-7.webp",
+    alt: "Sala princial con sofa y televisor",
+  },
+  {
+    src: "/img/acabados/apt-acabado-8.webp",
+    alt: "Habitación secundaria",
+  },
+  {
+    src: "/img/acabados/apt-acabado-9.webp",
+    alt: "Habitación pricipal",
+  },
+  {
+    src: "/img/acabados/apt-acabado-10.webp",
+    alt: "Armarios",
+  },
+  {
+    src: "/img/acabados/apt-acabado-11.webp",
+    alt: "Habitación principal y armarios",
+  },
+];
+
+const slides = imagenes.length ? imagenes : defaultImagenes;
+const total   = slides.length;
+---
+
+
+
+<div
+  class={`carrusel  ${className}`}
+  data-carrusel
+  role="region"
+  aria-label="Galería de imágenes del apartamento"
+>
+
+  <!-- ════════════════════════════════════════
+       DESKTOP: imagen principal + flechas
+       ════════════════════════════════════════ -->
+  <div class="carrusel__escenario hidden lg:block relative w-full rounded-[12px] overflow-hidden bg-[#1a1a1a]">
+
+    <!-- Imágenes apiladas, se alternan con opacity -->
+    <div
+      class="carrusel__principal relative w-full h-[405px] overflow-hidden"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      {slides.map((img, i) => (
+        <img
+          src={img.src}
+          alt={img.alt}
+          class:list={[
+            "carrusel__img-principal absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+            i === 0 ? "opacity-100" : "opacity-0 pointer-events-none",
+          ]}
+          data-index={i}
+          loading={i === 0 ? "eager" : "lazy"}
+          draggable="false"
+        />
+      ))}
+    </div>
+
+    <!-- Flecha ← -->
+    <button
+      class="carrusel__flecha carrusel__flecha--prev
+             absolute left-4 top-1/2 -translate-y-1/2 z-10
+             w-10 h-10 rounded-full
+             bg-white/90 hover:bg-white active:scale-95
+             shadow-[0px_2px_8px_rgba(0,0,0,0.25)]
+             flex items-center justify-center
+             transition-all duration-200
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34a6ba]"
+      aria-label="Imagen anterior"
+      data-dir="-1"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+           fill="none" stroke="#34a6ba" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+
+    <!-- Flecha → -->
+    <button
+      class="carrusel__flecha carrusel__flecha--next
+             absolute right-4 top-1/2 -translate-y-1/2 z-10
+             w-10 h-10 rounded-full
+             bg-white/90 hover:bg-white active:scale-95
+             shadow-[0px_2px_8px_rgba(0,0,0,0.25)]
+             flex items-center justify-center
+             transition-all duration-200
+             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34a6ba]"
+      aria-label="Imagen siguiente"
+      data-dir="1"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+           fill="none" stroke="#34a6ba" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+
+    <!-- Contador 1 / N -->
+    <div
+      class="absolute bottom-3 right-4 z-10
+             bg-black/40 text-white text-[12px] font-semibold
+             px-3 py-1 rounded-full backdrop-blur-sm"
+      aria-hidden="true"
+    >
+      <span data-current>1</span>&nbsp;/&nbsp;{total}
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       DESKTOP: thumbnails con scroll horizontal
+       — ancho fijo por thumb, scroll si hay >4
+       ════════════════════════════════════════ -->
+  <div
+    class="carrusel__thumbs-wrapper hidden lg:block relative mt-4"
+    data-thumbs-wrapper
+  >
+    <!-- Pista scrollable -->
+    <div
+      class="carrusel__thumbs
+             flex gap-3 overflow-x-auto overflow-y-hidden
+             scroll-smooth snap-x
+             pb-1
+             [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+      role="tablist"
+      aria-label="Miniaturas"
+      data-thumbs-track
+    >
+      {slides.map((img, i) => (
+        <button
+          class:list={[
+            // Ancho fijo: ~150px → caben 4 perfectamente en 631px con gap-3
+            "carrusel__thumb flex-none w-[148px] h-[110px] rounded-[8px] overflow-hidden relative",
+            "snap-start ring-2 ring-offset-2 transition-all duration-200",
+            "focus-visible:outline-none",
+            i === 0 ? "ring-[#34a6ba]" : "ring-transparent hover:ring-[#34a6ba]/50",
+          ]}
+          role="tab"
+          aria-selected={i === 0 ? "true" : "false"}
+          aria-label={`Ver imagen ${i + 1}: ${img.alt}`}
+          data-thumb={i}
+        >
+          <img
+            src={img.src}
+            alt=""
+            class="w-full h-full object-cover pointer-events-none"
+            loading="lazy"
+            draggable="false"
+          />
+          <!-- Overlay oscuro en thumbs inactivos -->
+          <div
+            class:list={[
+              "carrusel__thumb-overlay absolute inset-0 bg-black/30 transition-opacity duration-200",
+              i === 0 ? "opacity-0" : "opacity-100",
+            ]}
+            aria-hidden="true"
+          />
+        </button>
+      ))}
+    </div>
+
+    <!-- Degradado derecho: indica que hay más thumbs al hacer scroll -->
+    {total > 4 && (
+      <div
+        class="carrusel__thumbs-fade
+               pointer-events-none absolute right-0 top-0 bottom-1
+               w-12 bg-gradient-to-l from-[#f2f2f2] to-transparent
+               transition-opacity duration-300"
+        data-thumbs-fade
+        aria-hidden="true"
+      />
+    )}
+  </div>
+
+  <!-- ════════════════════════════════════════
+       MOBILE: pista scroll-snap
+       ════════════════════════════════════════ -->
+  <div
+    class="carrusel__track
+           lg:hidden
+           flex overflow-x-auto overflow-y-hidden
+           snap-x snap-mandatory scroll-smooth
+           rounded-[12px]
+           [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+    data-track
+    role="region"
+    aria-label="Desliza para ver más imágenes"
+  >
+    {slides.map((img, i) => (
+      <div
+        class="carrusel__slide flex-none w-full snap-center overflow-hidden relative"
+        data-slide={i}
+      >
+        <img
+          src={img.src}
+          alt={img.alt}
+          class="w-full aspect-[4/3] object-cover"
+          loading={i === 0 ? "eager" : "lazy"}
+          draggable="false"
+        />
+      </div>
+    ))}
+  </div>
+
+  <!-- ════════════════════════════════════════
+       MOBILE: dots de paginación
+       ════════════════════════════════════════ -->
+  <div
+    class="carrusel__dots lg:hidden flex items-center justify-center gap-2 mt-3"
+    role="tablist"
+    aria-label="Indicadores de posición"
+    data-dots
+  >
+    {slides.map((_, i) => (
+      <button
+        class:list={[
+          "carrusel__dot h-2 rounded-full transition-all duration-300",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34a6ba]",
+          i === 0
+            ? "w-5 bg-[#34a6ba]"
+            : "w-2 bg-[#333333]/30 hover:bg-[#34a6ba]/60",
+        ]}
+        role="tab"
+        aria-selected={i === 0 ? "true" : "false"}
+        aria-label={`Ir a imagen ${i + 1}`}
+        data-dot={i}
+      />
+    ))}
+  </div>
+
+</div>
+
+<!-- ─── SCRIPT ─── -->
+<script>
+  document.querySelectorAll('[data-carrusel]').forEach((carrusel) => {
+    const imgsPrincipal = carrusel.querySelectorAll<HTMLImageElement>('[data-index]');
+    const flechas       = carrusel.querySelectorAll<HTMLButtonElement>('[data-dir]');
+    const thumbBtns     = carrusel.querySelectorAll<HTMLButtonElement>('[data-thumb]');
+    const thumbOverlays = carrusel.querySelectorAll<HTMLElement>('.carrusel__thumb-overlay');
+    const counterEl     = carrusel.querySelector<HTMLElement>('[data-current]');
+    const thumbsTrack   = carrusel.querySelector<HTMLElement>('[data-thumbs-track]');
+    const thumbsFade    = carrusel.querySelector<HTMLElement>('[data-thumbs-fade]');
+    const mobileTrack   = carrusel.querySelector<HTMLElement>('[data-track]');
+    const dotBtns       = carrusel.querySelectorAll<HTMLButtonElement>('[data-dot]');
+
+    const total = imgsPrincipal.length;
+    let current = 0;
+
+    // ── Degradado: se oculta cuando el thumb-track llega al final ─────
+    function updateFade(): void {
+      if (!thumbsTrack || !thumbsFade) return;
+      const { scrollLeft, scrollWidth, clientWidth } = thumbsTrack;
+      const atEnd = scrollLeft + clientWidth >= scrollWidth - 4; // 4px tolerancia
+      thumbsFade.style.opacity = atEnd ? '0' : '1';
+    }
+
+    thumbsTrack?.addEventListener('scroll', updateFade, { passive: true });
+    // Inicializar tras render
+    requestAnimationFrame(updateFade);
+
+    // ── Scroll del thumb activo a la vista ────────────────────────────
+    function scrollThumbIntoView(index: number): void {
+      const btn = thumbBtns[index];
+      if (!thumbsTrack || !btn) return;
+      const trackRect = thumbsTrack.getBoundingClientRect();
+      const btnRect   = btn.getBoundingClientRect();
+      // Si el thumb queda fuera a la derecha o la izquierda, centrarlo
+      if (btnRect.right > trackRect.right || btnRect.left < trackRect.left) {
+        thumbsTrack.scrollTo({
+          left: btn.offsetLeft - thumbsTrack.clientWidth / 2 + btn.offsetWidth / 2,
+          behavior: 'smooth',
+        });
+      }
+    }
+
+    // ── Desktop: ir a slide N ─────────────────────────────────────────
+    function goTo(index: number): void {
+      const prev = current;
+      current = (index + total) % total;
+
+      // Imagen principal
+      imgsPrincipal[prev].classList.replace('opacity-100', 'opacity-0');
+      imgsPrincipal[prev].classList.add('pointer-events-none');
+      imgsPrincipal[current].classList.replace('opacity-0', 'opacity-100');
+      imgsPrincipal[current].classList.remove('pointer-events-none');
+
+      // Thumbs: ring + overlay
+      thumbBtns.forEach((btn, i) => {
+        const active = i === current;
+        btn.setAttribute('aria-selected', String(active));
+        btn.classList.toggle('ring-[#34a6ba]', active);
+        btn.classList.toggle('ring-transparent', !active);
+        thumbOverlays[i]?.classList.toggle('opacity-0', active);
+        thumbOverlays[i]?.classList.toggle('opacity-100', !active);
+      });
+
+      // Scroll thumb activo a la vista
+      scrollThumbIntoView(current);
+
+      // Contador
+      if (counterEl) counterEl.textContent = String(current + 1);
+    }
+
+    flechas.forEach((btn) =>
+      btn.addEventListener('click', () => goTo(current + Number(btn.dataset.dir)))
+    );
+
+    thumbBtns.forEach((btn) =>
+      btn.addEventListener('click', () => goTo(Number(btn.dataset.thumb)))
+    );
+
+    carrusel.addEventListener('keydown', (e: Event) => {
+      const ke = e as KeyboardEvent;
+      if (ke.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+      if (ke.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+
+    // ── Mobile: IntersectionObserver sincroniza dots ──────────────────
+    if (mobileTrack && dotBtns.length) {
+      const slides = mobileTrack.querySelectorAll<HTMLElement>('[data-slide]');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const i = Number((entry.target as HTMLElement).dataset.slide);
+            dotBtns.forEach((dot, j) => {
+              const active = j === i;
+              dot.setAttribute('aria-selected', String(active));
+              dot.classList.toggle('w-5', active);
+              dot.classList.toggle('bg-[#34a6ba]', active);
+              dot.classList.toggle('w-2', !active);
+              dot.classList.toggle('bg-[#333333]/30', !active);
+            });
+          });
+        },
+        { root: mobileTrack, threshold: 0.6 }
+      );
+
+      slides.forEach((slide) => observer.observe(slide));
+
+      dotBtns.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const targetSlide = slides[Number(dot.dataset.dot)];
+          if (targetSlide) mobileTrack.scrollTo({ left: targetSlide.offsetLeft, behavior: 'smooth' });
+        });
+      });
+    }
+  });
+</script>
